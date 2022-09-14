@@ -27,7 +27,7 @@ For VBA_Challenge_2018
            endingPrice = Cells(j, 6).Value
            End If 
            Next j 
-  ### Original Analysis
+  #### Original Analysis
 This code does get the job done, however it must loop through the sheet multiple times which is even more a burden since the sheet has a lot of data. This makes the code work hard to achieve the same output. 
    ### Refactored   
    In this version of the code instead of using nest for loops in order to aggregate the information we instead use a tickerIndex which will incremently increase as we loop through the data sheet. The code looks like this: 
@@ -57,7 +57,7 @@ This code does get the job done, however it must loop through the sheet multiple
                 tickerIndex = tickerIndex + 1
             End If
         Next i
-   ### Refactored Analysis 
+   #### Refactored Analysis 
    We can visually see the difference between the Refactored and Original code, however it may not be obvious on what is happening. In this case we threw out the nested loop approach and instead are using the array that was established earlier. This way we set all initial values to 0 for all tickers so once we loop through the data the values will not stack. Instead of looping through the whole data sheet 12 times for each ticker we are essentially looping through the data sheet once since we are increasing the tickerIndex everytime the current ticker value does not match with the next ticker value in the array. This greatly decreases the time it takes for VBA to run our code since it is essentially running through the data sheet once with a new tickerIndex value each time the previous tickerIdenx value as already been accounted for. This is further supported by the attached run times. 
    ## Summary 
    ### Advantage
